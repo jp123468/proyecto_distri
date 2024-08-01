@@ -1,0 +1,55 @@
+services:
+  wordpress1:
+    image: wordpress:latest
+    container_name: nodowop1
+    ports:
+      - "8001:80"
+    environment:
+    #aqui va el maestro
+      WORDPRESS_DB_HOST: base_master3
+      WORDPRESS_DB_USER: jose
+      WORDPRESS_DB_PASSWORD: jose
+      WORDPRESS_DB_NAME: wordpress
+      WORD_TABLE_PREFIX: wp1_ #es imporatnte ya que cada nodo debe tener un nombre
+  wordpress2:
+    image: wordpress:latest
+    container_name: nodowop2
+    ports:
+      - "8002:80"
+    environment:
+    #aqui va el maestro
+      WORDPRESS_DB_HOST: base_master3
+      WORDPRESS_DB_USER: jose
+      WORDPRESS_DB_PASSWORD: jose
+      WORDPRESS_DB_NAME: wordpress
+      WORD_TABLE_PREFIX: wp2_
+  wordpress3:
+    image: wordpress:latest
+    container_name: nodowop3
+    ports:
+      - "8003:80"
+    environment:
+    #aqui va el maestro
+      WORDPRESS_DB_HOST: base_master3
+      WORDPRESS_DB_USER: jose
+      WORDPRESS_DB_PASSWORD: jose
+      WORDPRESS_DB_NAME: wordpress
+      WORD_TABLE_PREFIX: wp3_
+# Hay que repetir esto tres veces para cada uno de los nodos que solicita 
+  base_master3:
+    image: mysql:latest
+    container_name: base_master3
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: jose
+      MYSQL_PASSWORD: jose
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: php3
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOSTS: "base_master3"
+      PMA_ARBITRARY: 1
+
