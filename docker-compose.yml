@@ -7,8 +7,8 @@ services:
     environment:
     #aqui va el maestro
       WORDPRESS_DB_HOST: base_master3
-      WORDPRESS_DB_USER: jose
-      WORDPRESS_DB_PASSWORD: jose
+      WORDPRESS_DB_USER: proyecto
+      WORDPRESS_DB_PASSWORD: proyecto
       WORDPRESS_DB_NAME: wordpress
       WORD_TABLE_PREFIX: wp1_ #es imporatnte ya que cada nodo debe tener un nombre
   wordpress2:
@@ -19,8 +19,8 @@ services:
     environment:
     #aqui va el maestro
       WORDPRESS_DB_HOST: base_master3
-      WORDPRESS_DB_USER: jose
-      WORDPRESS_DB_PASSWORD: jose
+      WORDPRESS_DB_USER: proyecto
+      WORDPRESS_DB_PASSWORD: proyecto
       WORDPRESS_DB_NAME: wordpress
       WORD_TABLE_PREFIX: wp2_
   wordpress3:
@@ -31,8 +31,8 @@ services:
     environment:
     #aqui va el maestro
       WORDPRESS_DB_HOST: base_master3
-      WORDPRESS_DB_USER: jose
-      WORDPRESS_DB_PASSWORD: jose
+      WORDPRESS_DB_USER: proyecto
+      WORDPRESS_DB_PASSWORD: proyecto
       WORDPRESS_DB_NAME: wordpress
       WORD_TABLE_PREFIX: wp3_
 # Hay que repetir esto tres veces para cada uno de los nodos que solicita 
@@ -42,8 +42,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: wordpress
-      MYSQL_USER: jose
-      MYSQL_PASSWORD: jose
+      MYSQL_USER: proyecto
+      MYSQL_PASSWORD: proyecto
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: php3
